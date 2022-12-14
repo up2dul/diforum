@@ -1,3 +1,5 @@
+import type { Thread } from '@/types';
+
 const api = (() => {
   const BASE_URL = 'https://forum-api.dicoding.dev/v1';
 
@@ -164,13 +166,7 @@ const api = (() => {
     return detailThread;
   }
 
-  interface Thread {
-    title: string;
-    body: string;
-    category: string;
-  }
-
-  async function createThread({ title, body, category }: Thread) {
+  async function createThread({ title, body, category }: Partial<Thread>) {
     const response = await _fetchWithAuth(`${BASE_URL}/threads`, {
       method: 'POST',
       headers: {

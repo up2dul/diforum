@@ -16,7 +16,7 @@ const asyncSetAuthUser = createAsyncThunk(
   },
 );
 
-const asyncUnsetAuthUser = createAsyncThunk('authUser/unset', async (userAuth, thunkAPI) => {
+const asyncUnsetAuthUser = createAsyncThunk('authUser/unset', async (_, thunkAPI) => {
   thunkAPI.dispatch(unsetAuthUser());
   api.putAccessToken('');
 });

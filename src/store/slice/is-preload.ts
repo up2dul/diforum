@@ -5,7 +5,7 @@ import api from '@/utils/api';
 import { setAuthUser, unsetAuthUser } from './auth-user';
 
 // #region Thunk function
-const asyncPreloadProcess = createAsyncThunk('isPreload/set', async (isPreload, thunkAPI) => {
+const asyncPreloadProcess = createAsyncThunk('isPreload/set', async (_, thunkAPI) => {
   try {
     // preload process
     const authUser = await api.getOwnProfile();
