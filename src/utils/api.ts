@@ -1,4 +1,4 @@
-import type { Thread } from '@/types';
+import type { Thread, VoteType } from '@/types';
 
 const api = (() => {
   const BASE_URL = 'https://forum-api.dicoding.dev/v1';
@@ -247,11 +247,7 @@ const api = (() => {
     return vote;
   }
 
-  async function addCommentVote(
-    threadId: string,
-    commentId: string,
-    voteType: 'up-vote' | 'down-vote' | 'neutral-vote',
-  ) {
+  async function addCommentVote(threadId: string, commentId: string, voteType: VoteType) {
     const response = await _fetchWithAuth(
       `${BASE_URL}/threads/${threadId}/comments/${commentId}/${voteType}`,
       {

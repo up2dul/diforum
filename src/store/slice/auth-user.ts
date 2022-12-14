@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 import api from '@/utils/api';
+import type { User } from '@/types';
 
 // #region Thunk function
 const asyncSetAuthUser = createAsyncThunk(
@@ -21,13 +22,6 @@ const asyncUnsetAuthUser = createAsyncThunk('authUser/unset', async (_, thunkAPI
   api.putAccessToken('');
 });
 // #endregion Thunk function
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  avatar: string;
-}
 
 interface InitialState {
   value: User | null;
