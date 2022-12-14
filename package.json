@@ -1,8 +1,8 @@
 {
-  "name": "personal-react-boilerplate",
+  "name": "diforum",
   "version": "0.1.0",
   "author": "Abdul malik <malik301002@gmail.com>",
-  "description": "My personal Vite + React + Typescript boilerplate",
+  "description": "Discussion and forum app",
   "private": true,
   "scripts": {
     "dev": "vite",
