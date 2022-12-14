@@ -24,3 +24,13 @@ export interface Thread {
   upVotesBy: string[];
   downVotesBy: string[];
 }
+
+export interface User extends Owner {
+  email: string;
+}
+
+export interface UserRegister {
+  name: string;
+  email: string;
+  password: string;
+}
