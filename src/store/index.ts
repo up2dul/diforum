@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import authUser from './slice/auth-user';
 import isPreload from './slice/is-preload';
+import threads from './slice/threads';
 
 export const store = configureStore({
   reducer: {
     authUser: authUser,
     isPreload: isPreload,
+    threads: threads,
   },
 });
 
