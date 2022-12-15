@@ -37,7 +37,7 @@ const initialState: InitialState = {
   list: [],
 };
 
-const threadsSlice = createSlice({
+export const threadsSlice = createSlice({
   name: 'threads',
   initialState,
   reducers: {

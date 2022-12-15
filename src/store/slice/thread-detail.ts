@@ -93,7 +93,7 @@ const initialState: InitialState = {
   },
 };
 
-const threadDetailSlice = createSlice({
+export const threadDetailSlice = createSlice({
   name: 'thread-detail',
   initialState,
   reducers: {

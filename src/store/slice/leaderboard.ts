@@ -25,7 +25,7 @@ const initialState: InitialState = {
   list: [],
 };
 
-const leaderboardSlice = createSlice({
+export const leaderboardSlice = createSlice({
   name: 'leaderboard',
   initialState,
   reducers: {
