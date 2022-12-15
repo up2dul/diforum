@@ -1,4 +1,4 @@
-import type { Thread, VoteType } from '@/types';
+import type { ThreadDetail, VoteType } from '@/types';
 
 const api = (() => {
   const BASE_URL = 'https://forum-api.dicoding.dev/v1';
@@ -166,7 +166,7 @@ const api = (() => {
     return detailThread;
   }
 
-  async function createThread({ title, body, category }: Partial<Thread>) {
+  async function createThread({ title, body, category }: Partial<ThreadDetail>) {
     const response = await _fetchWithAuth(`${BASE_URL}/threads`, {
       method: 'POST',
       headers: {

@@ -2,7 +2,13 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 import api from '@/utils/api';
-import type { Comment, CommentVoteResponse, Thread, ThreadVoteResponse, VoteType } from '@/types';
+import type {
+  Comment,
+  CommentVoteResponse,
+  ThreadDetail,
+  ThreadVoteResponse,
+  VoteType,
+} from '@/types';
 
 // #region Thunk function
 const asyncReceiveThreadDetail = createAsyncThunk(
@@ -66,7 +72,7 @@ const asyncCommentVote = createAsyncThunk(
 // #endregion Thunk function
 
 interface InitialState {
-  detail: Thread;
+  detail: ThreadDetail;
 }
 
 const initialState: InitialState = {
@@ -91,7 +97,7 @@ const threadDetailSlice = createSlice({
   name: 'thread-detail',
   initialState,
   reducers: {
-    receiveThreadDetail(state, action: PayloadAction<Thread>) {
+    receiveThreadDetail(state, action: PayloadAction<ThreadDetail>) {
       state.detail = action.payload;
     },
     clearThreadDetail(state) {
