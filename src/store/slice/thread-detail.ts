@@ -94,7 +94,7 @@ const initialState: InitialState = {
 };
 
 export const threadDetailSlice = createSlice({
-  name: 'thread-detail',
+  name: 'threadDetail',
   initialState,
   reducers: {
     receiveThreadDetail(state, action: PayloadAction<ThreadDetail>) {

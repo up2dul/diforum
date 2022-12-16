@@ -36,7 +36,7 @@ describe('threadDetail reducer', () => {
         upVotesBy: [],
         downVotesBy: [],
       },
-      type: 'thread-detail/receiveThreadDetail',
+      type: 'threadDetail/receiveThreadDetail',
     };
 
     // action
@@ -69,7 +69,7 @@ describe('threadDetail reducer', () => {
         upVotesBy: [],
         downVotesBy: [],
       },
-      type: 'thread-detail/receiveThreadDetail',
+      type: 'threadDetail/receiveThreadDetail',
     };
 
     // action
@@ -88,7 +88,7 @@ describe('threadDetail reducer', () => {
 
     const action: Action = {
       payload: undefined,
-      type: 'thread-detail/clearThreadDetail',
+      type: 'threadDetail/clearThreadDetail',
     };
 
     // action
