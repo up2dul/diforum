@@ -1,5 +1,32 @@
-html {
-  font-family: system-ui, -apple-system, Roboto, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: #F0E9D2;
-  color: #181D31;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: Rubik, sans-serif;
+    @apply text-dark bg-light-2;
+  }
+
+  h1 { @apply text-3xl; }
+
+  h2 { @apply text-2xl; }
+
+  h3 { @apply text-lg; }
+
+  p { @apply text-dark-2; }
+
+  input,
+  textarea { @apply block rounded-xl border border-dark py-1 px-2; }
+
+  a:focus,
+  button:focus { @apply ring-offset-4 ring-4; }
+}
+
+@layer utilities {
+  .x-container { @apply px-12 sm:px-24 md:px-52 lg:px-64 xl:px-80; }
+
+  .x-fluid-container { @apply px-8 sm:px-12 md:px-16 lg:px-24 xl:px-36; }
+
+  .text-link { @apply underline decoration-2 underline-offset-2 hover:text-sky; }
 }
