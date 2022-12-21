@@ -15,7 +15,7 @@ const ThreadCard = ({
   author,
   createdAt,
   category,
-}: ThreadCardProps) => (
+}: Partial<ThreadCardProps>) => (
   <Link to='#'>
     <article className='thread-card flex flex-col gap-5'>
       <h2>{title}</h2>
