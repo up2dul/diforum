@@ -12,15 +12,14 @@
 
   h2 { @apply text-2xl; }
 
-  h3 { @apply text-lg; }
+  h3 { @apply text-lg font-medium; }
 
   p { @apply text-como-600; }
 
   svg { @apply inline; }
 
   h1,
-  h2,
-  h3 { @apply font-semibold; }
+  h2 { @apply font-semibold; }
 
   input,
   textarea { @apply block rounded-xl border border-como-700 py-1 px-2; }
