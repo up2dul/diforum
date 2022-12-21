@@ -1,18 +1,21 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Layout from '@/components/Layout';
-import Home from '@/pages/Home';
+import Loader from '@/components/Loader';
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <Layout>
+const Home = lazy(() => import('@/pages/Home'));
+
+const App = () => (
+  <BrowserRouter>
+    <Layout>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path='/' element={<Home />} />
         </Routes>
-      </Layout>
-    </BrowserRouter>
-  );
-};
+      </Suspense>
+    </Layout>
+  </BrowserRouter>
+);
 
 export default App;
