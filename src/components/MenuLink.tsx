@@ -1,28 +1,24 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from '@headlessui/react';
-import { IconList } from '@tabler/icons';
+
+import { menuLinkItems } from '@/utils';
 
 const MenuList = () => (
   <Menu as='div' className='relative'>
-    <Menu.Button className='border-slate-900 bg-yellow-400 rounded-lg border-2 bg-yellow p-1'>
-      <IconList />
-    </Menu.Button>
+    <Menu.Button className='px-1 text-5xl'> =</Menu.Button>
 
     <Menu.Items
       as='div'
-      className='absolute right-0 flex w-36 flex-col gap-1 rounded-md border bg-light p-1'
+      className='absolute right-0 top-12 flex w-36 flex-col gap-1 rounded-md border border-como-300 bg-como-50 py-1'
     >
-      <Menu.Item as={Fragment}>
-        <Link to='/leaderboard' className='p-1 hover:bg-sky'>
-          🏆 Leaderboard
-        </Link>
-      </Menu.Item>
-      <Menu.Item as={Fragment}>
-        <Link to='/profile' className='p-1 hover:bg-sky'>
-          🙂 Profile
-        </Link>
-      </Menu.Item>
+      {menuLinkItems.map(({ href, content }) => (
+        <Menu.Item key={href} as={Fragment}>
+          <Link to={href} className='py-1 px-2 font-medium hover:bg-green-200'>
+            {content}
+          </Link>
+        </Menu.Item>
+      ))}
     </Menu.Items>
   </Menu>
 );
