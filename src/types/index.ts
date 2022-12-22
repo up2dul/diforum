@@ -7,7 +7,7 @@ interface Owner {
 export interface Comment {
   id: string;
   content: string;
-  createdAt: Date;
+  createdAt: string;
   owner: Owner;
   upVotesBy: string[];
   downVotesBy: string[];
