@@ -33,7 +33,7 @@
 
   .text-link { @apply underline decoration-2 underline-offset-2 hover:text-green-500; }
 
-  .thread-card { @apply rounded-lg border-2 border-como-600 py-7 px-5 shadow-lg transition hover:scale-[1.02]; }
+  .thread-card { @apply rounded-lg bg-como-50 border-2 border-como-600 py-7 px-5 shadow-lg transition hover:scale-[1.02]; }
 
   .thread-card:hover h2 { @apply text-green-600 underline decoration-2 underline-offset-2; }
 }
