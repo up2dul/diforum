@@ -21,7 +21,7 @@ const ThreadCard = ({
     <article className='thread-card flex flex-col gap-5'>
       <h2>{title}</h2>
       <p className='max-h-6 truncate' dangerouslySetInnerHTML={{ __html: body as string }}></p>
-      <hr className='border-como-300' />
+      <hr />
       <div className='flex flex-wrap items-center justify-between gap-3 text-sm font-medium text-como-600'>
         <p>
           <IconMessageDots /> {totalComments}
