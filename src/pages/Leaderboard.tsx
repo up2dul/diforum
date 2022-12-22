@@ -18,7 +18,7 @@ const Leaderboard = () => {
       <BackToHome />
       <h2>🏆 Active users leaderboard</h2>
 
-      <section className='mt-12'>
+      <section className='mt-5'>
         <div className='mb-4 flex justify-between border-b border-como-400 pb-1'>
           <h3>User</h3>
 
@@ -29,7 +29,7 @@ const Leaderboard = () => {
           {leaderboard.map(({ score, user }, idx) => (
             <article
               key={user.id}
-              className={`flex justify-between p-2 ${idx % 2 === 0 && 'bg-green-200'}`}
+              className={`flex items-center justify-between p-2 ${idx % 2 === 0 && 'bg-green-200'}`}
             >
               <div className='flex items-center gap-2'>
                 <img
