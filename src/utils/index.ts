@@ -22,6 +22,12 @@ function postedAt(date: string) {
   return 'just now';
 }
 
+function commentsCount(totalComment: number): string {
+  if (totalComment > 1) return `${totalComment} comments`;
+  if (totalComment === 1) return `${totalComment} comment`;
+  return 'No comment';
+}
+
 const menuLinkItems = [
   {
     href: '/leaderboard',
@@ -33,4 +39,4 @@ const menuLinkItems = [
   },
 ];
 
-export { postedAt, menuLinkItems };
+export { postedAt, commentsCount, menuLinkItems };
