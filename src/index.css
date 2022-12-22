@@ -18,6 +18,8 @@
 
   svg { @apply inline; }
 
+  hr { @apply border-como-300; }
+
   h1,
   h2 { @apply font-semibold; }
 
@@ -31,7 +33,7 @@
 @layer utilities {
   .x-container { @apply px-8 xs:px-12 sm:px-24 md:px-44 lg:px-64 xl:px-80; }
 
-  .text-link { @apply underline decoration-2 underline-offset-2 hover:text-green-500; }
+  .text-link { @apply text-green-700 underline decoration-2 underline-offset-4 hover:text-green-500; }
 
   .thread-card { @apply rounded-lg bg-como-50 border-2 border-como-600 py-7 px-5 shadow-lg transition hover:scale-[1.02]; }
 
