@@ -1,5 +1,5 @@
-import { IconClock, IconHash, IconMessageDots, IconUser } from '@tabler/icons';
 import { Link } from 'react-router-dom';
+import { IconClock, IconHash, IconMessageDots, IconUser } from '@tabler/icons';
 
 import { postedAt } from '@/utils';
 import type { Thread } from '@/types';
@@ -9,6 +9,7 @@ type ThreadCardProps = Thread & {
 };
 
 const ThreadCard = ({
+  id,
   title,
   body,
   totalComments,
@@ -16,7 +17,7 @@ const ThreadCard = ({
   createdAt,
   category,
 }: Partial<ThreadCardProps>) => (
-  <Link to='#'>
+  <Link to={`/detail/${id}`}>
     <article className='thread-card flex flex-col gap-5'>
       <h2>{title}</h2>
       <p className='truncate'>{body}</p>
