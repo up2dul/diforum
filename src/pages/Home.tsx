@@ -26,7 +26,7 @@ const Home = () => {
       <h2>✏️ Join and start a thread, by register your account now!</h2>
 
       <section className='mt-12 flex flex-col gap-7'>
-        {threadsWithAuthor.map((thread) => (
+        {threadsWithAuthor.map((thread: Thread) => (
           <ThreadCard key={thread.id} {...thread} />
         ))}
       </section>
