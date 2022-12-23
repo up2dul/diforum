@@ -37,6 +37,10 @@ const menuLinkItems = [
     href: '/login',
     content: 'Log in',
   },
+  {
+    href: '/register',
+    content: 'Register',
+  },
 ];
 
 export { postedAt, commentsCount, menuLinkItems };
