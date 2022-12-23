@@ -20,11 +20,13 @@
 
   hr { @apply border-como-300; }
 
+  label { @apply inline-block mb-1; }
+
   h1,
   h2 { @apply font-semibold; }
 
   input,
-  textarea { @apply block rounded-xl border border-como-700 py-1 px-2; }
+  textarea { @apply block rounded-xl border border-como-600 py-1 px-2; }
 
   a:focus,
   button:focus { @apply ring-4 ring-offset-4 ring-green-300; }
@@ -33,7 +35,7 @@
 @layer utilities {
   .x-container { @apply px-8 xs:px-12 sm:px-24 md:px-44 lg:px-64 xl:px-80; }
 
-  .text-link { @apply text-green-700 underline decoration-2 underline-offset-4 hover:text-green-500; }
+  .text-link { @apply text-green-700 underline decoration-2 underline-offset-4 transition-colors hover:text-green-500; }
 
   .thread-card { @apply rounded-lg bg-como-50 border-2 border-como-600 py-7 px-5 shadow-lg transition hover:scale-[1.02]; }
 
