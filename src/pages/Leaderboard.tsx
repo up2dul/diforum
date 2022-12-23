@@ -18,7 +18,7 @@ const Leaderboard = () => {
       <BackToHome />
       <h2>🏆 Active users leaderboard</h2>
 
-      <section className='mt-5'>
+      <section className='mt-10'>
         <div className='mb-4 flex justify-between border-b border-como-400 pb-1'>
           <h3>User</h3>
 

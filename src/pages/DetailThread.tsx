@@ -43,7 +43,7 @@ const DetailThread = () => {
 
       <hr className='my-3' />
 
-      <div className='mb-8 flex items-center justify-between'>
+      <div className='mb-16 flex items-center justify-between'>
         <h3>{commentsCount(comments.length)}</h3>
 
         <div className='flex gap-8'>
