@@ -20,7 +20,7 @@ const ThreadCard = ({
   <Link to={`/detail/${id}`}>
     <article className='thread-card flex flex-col gap-5'>
       <h2>{title}</h2>
-      <p className='max-h-6 truncate' dangerouslySetInnerHTML={{ __html: body as string }}></p>
+      <p className='max-h-6 truncate' dangerouslySetInnerHTML={{ __html: body as string }} />
       <hr />
       <div className='flex flex-wrap items-center justify-between gap-3 text-sm font-medium text-como-600'>
         <p>

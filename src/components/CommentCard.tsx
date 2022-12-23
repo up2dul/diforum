@@ -11,7 +11,7 @@ const CommentCard = ({ owner, createdAt, content, upVotesBy, downVotesBy }: Comm
       <h3>{owner.name}</h3>
     </div>
 
-    <p dangerouslySetInnerHTML={{ __html: content }}></p>
+    <p dangerouslySetInnerHTML={{ __html: content }} />
 
     <div className='flex items-center justify-between'>
       <h3 className='text-sm'>{postedAt(createdAt)}</h3>

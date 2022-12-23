@@ -39,7 +39,7 @@ const DetailThread = () => {
 
       <hr className='my-3' />
 
-      <p dangerouslySetInnerHTML={{ __html: body }}></p>
+      <p dangerouslySetInnerHTML={{ __html: body }} />
 
       <hr className='my-3' />
 
