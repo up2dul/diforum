@@ -8,6 +8,7 @@ const Home = lazy(() => import('@/pages/Home'));
 const DetailThread = lazy(() => import('@/pages/DetailThread'));
 const Leaderboard = lazy(() => import('@/pages/Leaderboard'));
 const Login = lazy(() => import('@/pages/Login'));
+const Register = lazy(() => import('@/pages/Register'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const App = () => (
@@ -19,6 +20,7 @@ const App = () => (
           <Route path='/detail/:threadId' element={<DetailThread />} />
           <Route path='/leaderboard' element={<Leaderboard />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Suspense>
