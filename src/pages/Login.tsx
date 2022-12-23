@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import BackToHome from '@/components/BackToHome';
 import Button from '@/components/Button';
+import InputGroup from '@/components/InputGroup';
 import LoginSvg from '@/assets/login.svg';
 
 const Login = () => (
@@ -18,29 +19,13 @@ const Login = () => (
           </Link>
         </p>
 
-        <label>
+        <InputGroup type='email' placeholder='e.g. john@gmail.com'>
           Email
-          <input
-            type='text'
-            className='mt-1'
-            maxLength={30}
-            placeholder='e.g. john@gmail.com'
-            autoComplete='off'
-            required
-          />
-        </label>
+        </InputGroup>
 
-        <label>
+        <InputGroup type='password' placeholder='******'>
           Password
-          <input
-            type='password'
-            className='mt-1'
-            maxLength={30}
-            placeholder='******'
-            autoComplete='off'
-            required
-          />
-        </label>
+        </InputGroup>
 
         <Button isSubmit>Log in</Button>
       </form>
