@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { asyncReceiveThreads } from '@/store/slice/threads';
 import { asyncReceiveUsers } from '@/store/slice/users';
@@ -23,7 +24,13 @@ const Home = () => {
 
   return (
     <>
-      <h2>✏️ Join and start a thread, by register your account now!</h2>
+      <h2>
+        ✏️ Join and start a thread, by{' '}
+        <Link to='/register' className='text-link'>
+          register
+        </Link>{' '}
+        your account now!
+      </h2>
 
       <section className='mt-12 flex flex-col gap-7'>
         {threadsWithAuthor.map((thread: Thread) => (
