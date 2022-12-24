@@ -32,6 +32,7 @@ module.exports = {
         800: '#12692c',
         900: '#115626',
       },
+      danger: '#d2001a',
     },
   },
   plugins: [],
