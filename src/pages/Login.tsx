@@ -1,38 +1,61 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import type { SubmitHandler } from 'react-hook-form';
 
+import { asyncPreloadProcess } from '@/store/slice/is-preload';
+import { asyncSetAuthUser } from '@/store/slice/auth-user';
 import BackToHome from '@/components/BackToHome';
 import Button from '@/components/Button';
 import InputGroup from '@/components/InputGroup';
 import LoginSvg from '@/assets/login.svg';
+import type { AppDispatch } from '@/store';
 
-const Login = () => (
-  <>
-    <BackToHome />
-    <h2>📲 Log in to your account</h2>
+type Inputs = {
+  email: string;
+  password: string;
+};
 
-    <section className='mt-10 flex justify-center lg:justify-between'>
-      <form className='flex flex-col gap-5'>
-        <p>
-          New in here? register new account{' '}
-          <Link to='/register' className='text-link'>
-            here
-          </Link>
-        </p>
+const Login = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { register, handleSubmit } = useForm<Inputs>();
 
-        <InputGroup type='email' placeholder='e.g. john@gmail.com'>
-          Email
-        </InputGroup>
+  useEffect(() => {
+    dispatch(asyncPreloadProcess());
+  }, [dispatch]);
 
-        <InputGroup type='password' placeholder='******'>
-          Password
-        </InputGroup>
+  const onSubmit: SubmitHandler<Inputs> = (data) => dispatch(asyncSetAuthUser(data));
 
-        <Button isSubmit>Log in</Button>
-      </form>
+  return (
+    <>
+      <BackToHome />
+      <h2>📲 Log in to your account</h2>
 
-      <img src={LoginSvg} alt='Login illustration' className='hidden w-[350px] lg:block' />
-    </section>
-  </>
-);
+      <section className='mt-10 flex justify-center lg:justify-between'>
+        <form className='flex flex-col gap-5' onSubmit={handleSubmit(onSubmit)}>
+          <p>
+            New in here? register new account{' '}
+            <Link to='/register' className='text-link'>
+              here
+            </Link>
+          </p>
+
+          <InputGroup placeholder='e.g. john@gmail.com' {...register('email')}>
+            Email
+          </InputGroup>
+
+          <InputGroup type='password' placeholder='******' {...register('password')}>
+            Password
+          </InputGroup>
+
+          <Button isSubmit>Log in</Button>
+        </form>
+
+        <img src={LoginSvg} alt='Login illustration' className='hidden w-[350px] lg:block' />
+      </section>
+    </>
+  );
+};
 
 export default Login;
