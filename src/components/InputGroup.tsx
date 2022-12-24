@@ -1,23 +1,34 @@
+import { forwardRef } from 'react';
+import type { ChangeHandler } from 'react-hook-form';
+
 type InputGroupProps = {
-  type?: 'text' | 'email' | 'password';
-  minLength?: number;
+  name: string;
+  type?: 'text' | 'password';
   placeholder: string;
+  error?: string;
   children: string;
+  onBlur: ChangeHandler;
+  onChange: ChangeHandler;
 };
 
-const InputGroup = ({ type = 'text', minLength = 3, placeholder, children }: InputGroupProps) => (
-  <label>
-    {children}
-    <input
-      type={type}
-      className='mt-1'
-      minLength={minLength}
-      maxLength={30}
-      placeholder={placeholder}
-      autoComplete='off'
-      required
-    />
-  </label>
+const InputGroup = forwardRef<HTMLInputElement, InputGroupProps>(
+  ({ name, type = 'text', placeholder, error, children, onBlur, onChange }, ref) => (
+    <label>
+      {children}
+      <input
+        ref={ref}
+        name={name}
+        type={type}
+        className='mt-1'
+        placeholder={placeholder}
+        autoComplete='off'
+        onBlur={onBlur}
+        onChange={onChange}
+      />
+      <p className='text-sm'>{error}</p>
+    </label>
+  ),
 );
 
+InputGroup.displayName = 'InputGroup';
 export default InputGroup;
