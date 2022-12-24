@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import type { ChangeHandler } from 'react-hook-form';
+import clsx from 'clsx';
 
 type InputGroupProps = {
   name: string;
@@ -19,13 +20,13 @@ const InputGroup = forwardRef<HTMLInputElement, InputGroupProps>(
         ref={ref}
         name={name}
         type={type}
-        className='mt-1'
+        className={clsx('mt-1', error && 'border-danger focus:outline-danger')}
         placeholder={placeholder}
         autoComplete='off'
         onBlur={onBlur}
         onChange={onChange}
       />
-      <p className='text-sm'>{error}</p>
+      <p className='text-sm text-danger'>{error}</p>
     </label>
   ),
 );
