@@ -28,18 +28,37 @@ function commentsCount(totalComment: number): string {
   return 'No comment';
 }
 
-const menuLinkItems = [
+interface MenuLink {
+  href: string;
+  content: string;
+  visible: 'all' | 'no-auth' | 'auth';
+}
+
+const menuLinkItems: MenuLink[] = [
   {
     href: '/leaderboard',
     content: 'Leaderboard',
+    visible: 'all',
   },
   {
     href: '/login',
     content: 'Log in',
+    visible: 'no-auth',
   },
   {
     href: '/register',
     content: 'Register',
+    visible: 'no-auth',
+  },
+  {
+    href: '/create-thread',
+    content: 'New thread',
+    visible: 'auth',
+  },
+  {
+    href: '/profile',
+    content: 'My profile',
+    visible: 'auth',
   },
 ];
 
