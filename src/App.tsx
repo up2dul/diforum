@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Layout from '@/components/Layout';
 import Loader from '@/components/Loader';
+import AuthProvider from '@/components/AuthProvider';
 
 const Home = lazy(() => import('@/pages/Home'));
 const DetailThread = lazy(() => import('@/pages/DetailThread'));
@@ -19,8 +20,22 @@ const App = () => (
           <Route path='/' element={<Home />} />
           <Route path='/detail/:threadId' element={<DetailThread />} />
           <Route path='/leaderboard' element={<Leaderboard />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
+          <Route
+            path='/login'
+            element={
+              <AuthProvider>
+                <Login />
+              </AuthProvider>
+            }
+          />
+          <Route
+            path='/register'
+            element={
+              <AuthProvider>
+                <Register />
+              </AuthProvider>
+            }
+          />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Suspense>
