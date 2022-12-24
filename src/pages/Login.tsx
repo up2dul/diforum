@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
 import type { SubmitHandler } from 'react-hook-form';
 
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import { asyncSetAuthUser } from '@/store/slice/auth-user';
+import { loginSchema } from '@/utils/schema';
 import BackToHome from '@/components/BackToHome';
 import Button from '@/components/Button';
 import InputGroup from '@/components/InputGroup';
@@ -19,7 +21,11 @@ type Inputs = {
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { register, handleSubmit } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>({ resolver: yupResolver(loginSchema) });
 
   useEffect(() => {
     dispatch(asyncPreloadProcess());
@@ -41,11 +47,20 @@ const Login = () => {
             </Link>
           </p>
 
-          <InputGroup placeholder='e.g. john@gmail.com' {...register('email')}>
+          <InputGroup
+            placeholder='e.g. john@gmail.com'
+            error={errors.email?.message}
+            {...register('email')}
+          >
             Email
           </InputGroup>
 
-          <InputGroup type='password' placeholder='******' {...register('password')}>
+          <InputGroup
+            type='password'
+            placeholder='******'
+            error={errors.password?.message}
+            {...register('password')}
+          >
             Password
           </InputGroup>
 

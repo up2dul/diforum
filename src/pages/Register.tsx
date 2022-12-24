@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Link } from 'react-router-dom';
 import type { SubmitHandler } from 'react-hook-form';
 
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import { asyncRegisterUser } from '@/store/slice/users';
+import { registerSchema } from '@/utils/schema';
 import BackToHome from '@/components/BackToHome';
 import Button from '@/components/Button';
 import InputGroup from '@/components/InputGroup';
@@ -21,7 +23,11 @@ type Inputs = {
 
 const Register = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { register, handleSubmit } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>({ resolver: yupResolver(registerSchema) });
 
   useEffect(() => {
     dispatch(asyncPreloadProcess());
@@ -45,21 +51,35 @@ const Register = () => {
             </Link>
           </p>
 
-          <InputGroup placeholder='e.g. John Doe' {...register('fullName')}>
+          <InputGroup
+            placeholder='e.g. John Doe'
+            error={errors.fullName?.message}
+            {...register('fullName')}
+          >
             Full name
           </InputGroup>
 
-          <InputGroup placeholder='e.g. john@gmail.com' {...register('email')}>
+          <InputGroup
+            placeholder='e.g. john@gmail.com'
+            error={errors.email?.message}
+            {...register('email')}
+          >
             Email
           </InputGroup>
 
-          <InputGroup type='password' placeholder='min. 6 characters' {...register('password')}>
+          <InputGroup
+            type='password'
+            placeholder='min. 6 characters'
+            error={errors.password?.message}
+            {...register('password')}
+          >
             Password
           </InputGroup>
 
           <InputGroup
             type='password'
             placeholder='min. 6 characters'
+            error={errors.confirmPassword?.message}
             {...register('confirmPassword')}
           >
             Confirm password
