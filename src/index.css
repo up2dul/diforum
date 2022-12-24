@@ -26,7 +26,7 @@
   h2 { @apply font-semibold; }
 
   input,
-  textarea { @apply block rounded-xl border border-como-600 py-1 px-2; }
+  textarea { @apply block rounded-xl border border-como-600 py-1 px-2 focus:outline-green-500; }
 
   a:focus,
   button:focus { @apply ring-4 ring-offset-4 ring-green-300; }
