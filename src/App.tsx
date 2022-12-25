@@ -1,15 +1,16 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import AuthProvider from '@/components/AuthProvider';
 import Layout from '@/components/Layout';
 import Loader from '@/components/Loader';
-import AuthProvider from '@/components/AuthProvider';
 
 const Home = lazy(() => import('@/pages/Home'));
 const DetailThread = lazy(() => import('@/pages/DetailThread'));
 const Leaderboard = lazy(() => import('@/pages/Leaderboard'));
 const Login = lazy(() => import('@/pages/Login'));
 const Register = lazy(() => import('@/pages/Register'));
+const Profile = lazy(() => import('@/pages/Profile'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const App = () => (
@@ -33,6 +34,14 @@ const App = () => (
             element={
               <AuthProvider>
                 <Register />
+              </AuthProvider>
+            }
+          />
+          <Route
+            path='/profile'
+            element={
+              <AuthProvider isShouldAuth>
+                <Profile />
               </AuthProvider>
             }
           />
