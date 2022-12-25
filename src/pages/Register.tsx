@@ -60,6 +60,7 @@ const Register = () => {
           </InputGroup>
 
           <InputGroup
+            type='email'
             placeholder='e.g. john@gmail.com'
             error={errors.email?.message}
             {...register('email')}

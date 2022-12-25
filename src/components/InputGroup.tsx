@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 type InputGroupProps = {
   name: string;
-  type?: 'text' | 'password';
+  type?: 'text' | 'email' | 'password';
   placeholder: string;
   error?: string;
   children: string;
