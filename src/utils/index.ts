@@ -28,6 +28,12 @@ function commentsCount(totalComment: number): string {
   return 'No comment';
 }
 
+function threadsCount(totalThread: number): string {
+  if (totalThread > 1) return `${totalThread} threads posted`;
+  if (totalThread === 1) return `${totalThread} thread posted`;
+  return 'No thread posted yet';
+}
+
 interface MenuLink {
   href: string;
   content: string;
@@ -62,4 +68,4 @@ const menuLinkItems: MenuLink[] = [
   },
 ];
 
-export { postedAt, commentsCount, menuLinkItems };
+export { postedAt, commentsCount, threadsCount, menuLinkItems };
