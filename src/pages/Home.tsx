@@ -39,7 +39,7 @@ const Home = () => {
         </h2>
       )}
 
-      <section className='mt-12 flex flex-col gap-7'>
+      <section className='mt-10 flex flex-col gap-7'>
         {threadsWithAuthor.map((thread: Thread) => (
           <ThreadCard key={thread.id} {...thread} />
         ))}
