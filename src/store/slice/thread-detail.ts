@@ -55,7 +55,7 @@ const asyncVoteThread = createAsyncThunk(
   },
 );
 
-const asyncCommentVote = createAsyncThunk(
+const asyncVoteComment = createAsyncThunk(
   'threadDetail/addCommentVote',
   async (vote: { threadId: string; commentId: string; voteType: VoteType }, thunkAPI) => {
     const { threadId, commentId, voteType } = vote;
@@ -129,20 +129,24 @@ export const threadDetailSlice = createSlice({
         if (comment.id === action.payload.commentId)
           switch (action.payload.voteType) {
             case 1:
-              detail.upVotesBy.push(action.payload.userId);
-              detail.downVotesBy = detail.downVotesBy.filter(
+              comment.upVotesBy.push(action.payload.userId);
+              comment.downVotesBy = comment.downVotesBy.filter(
                 (vote) => vote !== action.payload.userId,
               );
               break;
             case 0:
-              detail.upVotesBy = detail.upVotesBy.filter((vote) => vote !== action.payload.userId);
-              detail.downVotesBy = detail.downVotesBy.filter(
+              comment.upVotesBy = comment.upVotesBy.filter(
+                (vote) => vote !== action.payload.userId,
+              );
+              comment.downVotesBy = comment.downVotesBy.filter(
                 (vote) => vote !== action.payload.userId,
               );
               break;
             case -1:
-              detail.upVotesBy = detail.upVotesBy.filter((vote) => vote !== action.payload.userId);
-              detail.downVotesBy.push(action.payload.userId);
+              comment.upVotesBy = comment.upVotesBy.filter(
+                (vote) => vote !== action.payload.userId,
+              );
+              comment.downVotesBy.push(action.payload.userId);
               break;
             default:
               break;
@@ -159,5 +163,5 @@ export const {
   addThreadVote,
   addThreadCommentVote,
 } = threadDetailSlice.actions;
-export { asyncReceiveThreadDetail, asyncAddThreadComment, asyncVoteThread, asyncCommentVote };
+export { asyncReceiveThreadDetail, asyncAddThreadComment, asyncVoteThread, asyncVoteComment };
 export default threadDetailSlice.reducer;
