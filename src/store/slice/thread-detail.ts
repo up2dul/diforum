@@ -42,7 +42,7 @@ const asyncAddThreadComment = createAsyncThunk(
 
 const asyncVoteThread = createAsyncThunk(
   'threadDetail/addVote',
-  async (vote: { threadId: string; voteType: string }, thunkAPI) => {
+  async (vote: { threadId: string; voteType: VoteType }, thunkAPI) => {
     const { threadId, voteType } = vote;
     try {
       const newVote = await api.addThreadVote(threadId, voteType);
