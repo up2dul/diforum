@@ -1,9 +1,9 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import AuthProvider from '@/components/AuthProvider';
 import Layout from '@/components/Layout';
 import Loader from '@/components/Loader';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 const Home = lazy(() => import('@/pages/Home'));
 const DetailThread = lazy(() => import('@/pages/DetailThread'));
@@ -24,25 +24,25 @@ const App = () => (
           <Route
             path='/login'
             element={
-              <AuthProvider>
+              <ProtectedRoute>
                 <Login />
-              </AuthProvider>
+              </ProtectedRoute>
             }
           />
           <Route
             path='/register'
             element={
-              <AuthProvider>
+              <ProtectedRoute>
                 <Register />
-              </AuthProvider>
+              </ProtectedRoute>
             }
           />
           <Route
             path='/profile'
             element={
-              <AuthProvider isShouldAuth>
+              <ProtectedRoute isShouldAuth>
                 <Profile />
-              </AuthProvider>
+              </ProtectedRoute>
             }
           />
           <Route path='*' element={<NotFound />} />

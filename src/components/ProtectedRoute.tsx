@@ -5,12 +5,12 @@ import { Navigate } from 'react-router-dom';
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import type { AppDispatch, RootState } from '@/store';
 
-type AuthProviderProps = {
+type ProtectedRouteProps = {
   isShouldAuth?: boolean;
   children: React.ReactElement;
 };
 
-const AuthProvider = ({ isShouldAuth = false, children }: AuthProviderProps) => {
+const ProtectedRoute = ({ isShouldAuth = false, children }: ProtectedRouteProps) => {
   const authUser = useSelector((state: RootState) => state.authUser.value);
   const isPreload = useSelector((state: RootState) => state.isPreload.value);
   const dispatch = useDispatch<AppDispatch>();
@@ -26,4 +26,4 @@ const AuthProvider = ({ isShouldAuth = false, children }: AuthProviderProps) => 
   return authUser === null ? children : <Navigate to='/' />;
 };
 
-export default AuthProvider;
+export default ProtectedRoute;
