@@ -1,12 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
-import { asyncReceiveThreadDetail, asyncVoteThread } from '@/store/slice/thread-detail';
+import {
+  asyncAddThreadComment,
+  asyncReceiveThreadDetail,
+  asyncVoteThread,
+} from '@/store/slice/thread-detail';
 import { commentsCount, postedAt } from '@/utils';
 import BackToHome from '@/components/BackToHome';
+import Button from '@/components/Button';
 import CommentCard from '@/components/CommentCard';
+import Tiptap from '@/components/Tiptap';
 import VoteButton from '@/components/VoteButton';
 import type { AppDispatch, RootState } from '@/store';
 import type { Comment } from '@/types';
@@ -16,6 +22,7 @@ const DetailThread = () => {
   const threadDetail = useSelector((state: RootState) => state.threadDetail.detail);
   const dispatch = useDispatch<AppDispatch>();
   const { threadId } = useParams<'threadId'>();
+  const [newComment, setNewComment] = useState<string>('');
   const { owner, createdAt, category, title, body, comments, upVotesBy, downVotesBy } =
     threadDetail;
 
@@ -34,6 +41,10 @@ const DetailThread = () => {
 
   const handleNeutralVote = () => {
     dispatch(asyncVoteThread({ threadId: threadId as string, voteType: 'neutral-vote' }));
+  };
+
+  const handleNewComment = () => {
+    dispatch(asyncAddThreadComment({ content: newComment, threadId: threadId as string }));
   };
 
   return (
@@ -90,14 +101,26 @@ const DetailThread = () => {
         </div>
       </div>
 
-      <p>
-        <Link to='/login' className='text-link'>
-          Log in
-        </Link>{' '}
-        to add your comment
-      </p>
+      {authUser ? (
+        <section className='flex flex-col justify-start gap-2'>
+          <h3>Add your comment</h3>
 
-      <hr className='my-3' />
+          <Tiptap onUpdate={(result) => setNewComment(result)} />
+
+          <div className='self-end'>
+            <Button onClick={handleNewComment}>Add comment</Button>
+          </div>
+        </section>
+      ) : (
+        <p>
+          <Link to='/login' className='text-link'>
+            Log in
+          </Link>{' '}
+          to add your comment
+        </p>
+      )}
+
+      <hr className='my-5' />
 
       <section className='flex flex-col gap-3'>
         {comments?.map((comment: Comment) => (
