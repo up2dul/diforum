@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+.ProseMirror {
+  @apply border border-como-600 p-1 rounded-b-xl h-24 overflow-auto;
+}
+
+.ProseMirror-focused {
+  @apply outline-green-500;
+}
+
+/* Placeholder (at the top) */
+.ProseMirror p.is-editor-empty:first-child::before {
+  @apply text-como-300;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
 @layer base {
   html {
     font-family: Poppins, sans-serif;
