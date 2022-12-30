@@ -10,6 +10,7 @@ const DetailThread = lazy(() => import('@/pages/DetailThread'));
 const Leaderboard = lazy(() => import('@/pages/Leaderboard'));
 const Login = lazy(() => import('@/pages/Login'));
 const Register = lazy(() => import('@/pages/Register'));
+const NewThread = lazy(() => import('@/pages/NewThread'));
 const Profile = lazy(() => import('@/pages/Profile'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
@@ -34,6 +35,14 @@ const App = () => (
             element={
               <ProtectedRoute>
                 <Register />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/new-thread'
+            element={
+              <ProtectedRoute isShouldAuth>
+                <NewThread />
               </ProtectedRoute>
             }
           />
