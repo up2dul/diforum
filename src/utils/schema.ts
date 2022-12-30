@@ -7,7 +7,7 @@ const loginSchema = yup.object({
     .string()
     .email('Must be a valid email')
     .required('Enter your email address')
-    .max(30, 'Max, 30 characters'),
+    .max(30, 'Max. 30 characters'),
   password: yup
     .string()
     .required('Enter your password')
@@ -16,7 +16,7 @@ const loginSchema = yup.object({
 });
 
 const registerSchema = yup.object({
-  fullName: yup.string().required('Enter your name').max(32, 'Max, 32 characters'),
+  fullName: yup.string().required('Enter your name').max(32, 'Max. 32 characters'),
   email: yup.string().email('Must be a valid email').required('Enter your email address'),
   password: yup
     .string()
