@@ -15,6 +15,7 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
   return (
     <div className='flex justify-center gap-4 rounded-t-xl border-2 border-como-600 py-1 px-2'>
       <button
+        type='button'
         title='Bold'
         disabled={!editor.can().chain().focus().toggleBold().run()}
         onClick={() => editor.chain().focus().toggleBold().run()}
@@ -23,6 +24,7 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
         <IconBold />
       </button>
       <button
+        type='button'
         title='Italic'
         disabled={!editor.can().chain().focus().toggleItalic().run()}
         onClick={() => editor.chain().focus().toggleItalic().run()}
@@ -31,6 +33,7 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
         <IconItalic />
       </button>
       <button
+        type='button'
         title='Strikethrough'
         disabled={!editor.can().chain().focus().toggleStrike().run()}
         onClick={() => editor.chain().focus().toggleStrike().run()}
@@ -39,6 +42,7 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
         <IconStrikethrough />
       </button>
       <button
+        type='button'
         title='Code'
         disabled={!editor.can().chain().focus().toggleCode().run()}
         onClick={() => editor.chain().focus().toggleCode().run()}
