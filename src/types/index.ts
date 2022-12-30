@@ -25,6 +25,12 @@ export interface Thread {
   downVotesBy: string[];
 }
 
+export interface NewThread {
+  title: string;
+  category: string;
+  body: string;
+}
+
 export interface ThreadDetail {
   id: string;
   title: string;

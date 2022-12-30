@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 import api from '@/utils/api';
-import type { Thread } from '@/types';
+import type { NewThread, Thread } from '@/types';
 
 // #region Thunk function
 const asyncReceiveThreads = createAsyncThunk('threads/receive', async (_, thunkAPI) => {
@@ -16,7 +16,7 @@ const asyncReceiveThreads = createAsyncThunk('threads/receive', async (_, thunkA
   }
 });
 
-const asyncAddThread = createAsyncThunk('threads/add', async (thread: Thread, thunkAPI) => {
+const asyncAddThread = createAsyncThunk('threads/add', async (thread: NewThread, thunkAPI) => {
   const { title, body, category } = thread;
   try {
     const newThread = await api.createThread({ title, body, category });
