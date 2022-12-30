@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -77,4 +78,4 @@ const CommentCard = ({
   );
 };
 
-export default CommentCard;
+export default memo(CommentCard);
