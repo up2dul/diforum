@@ -105,7 +105,11 @@ const DetailThread = () => {
         <section className='flex flex-col justify-start gap-2'>
           <h3>Add your comment</h3>
 
-          <Tiptap onUpdate={(result) => setNewComment(result)} />
+          <Tiptap
+            limitChar={280}
+            placeholder='Max. 280 characters'
+            onUpdate={(result) => setNewComment(result)}
+          />
 
           <div className='self-end'>
             <Button onClick={handleNewComment}>Add comment</Button>

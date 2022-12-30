@@ -50,16 +50,24 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
   );
 };
 
-const Tiptap = ({ onUpdate }: { onUpdate: (result: string) => void }) => {
-  const limitChar = 280;
+type TiptapProps = {
+  limitChar: number;
+  content?: string;
+  placeholder: string;
+  error?: string;
+  onUpdate: (result: string) => void;
+};
+
+const Tiptap = ({ limitChar, content, placeholder, error, onUpdate }: TiptapProps) => {
   const editor = useEditor({
+    content,
     extensions: [
       StarterKit,
       CharacterCount.configure({
         limit: limitChar,
       }),
       Placeholder.configure({
-        placeholder: 'Max. 280 characters',
+        placeholder,
       }),
     ],
     onUpdate({ editor }: { editor: Editor }) {
@@ -71,6 +79,7 @@ const Tiptap = ({ onUpdate }: { onUpdate: (result: string) => void }) => {
     <div>
       <MenuBar editor={editor} />
       <EditorContent editor={editor} />
+      <p className='text-sm text-danger'>{error}</p>
     </div>
   );
 };
