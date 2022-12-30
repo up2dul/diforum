@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .ProseMirror {
-  @apply border border-como-600 p-1 rounded-b-xl h-24 overflow-auto;
+  @apply bg-[#fff] border border-como-600 p-1 rounded-b-xl h-24 overflow-auto;
 }
 
 .ProseMirror-focused {
