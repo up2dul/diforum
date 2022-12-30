@@ -57,7 +57,7 @@ const menuLinkItems: MenuLink[] = [
     visible: 'no-auth',
   },
   {
-    href: '/create-thread',
+    href: '/new-thread',
     content: 'New thread',
     visible: 'auth',
   },
