@@ -30,4 +30,10 @@ const registerSchema = yup.object({
     .required('Confirm your password'),
 });
 
-export { loginSchema, registerSchema };
+const threadSchema = yup.object({
+  title: yup.string().required('Title is required').max(80, 'Max. 80 characters'),
+  category: yup.string().required('Category is required').max(20, 'Max. 20 characters'),
+  body: yup.string().required('Content is required'),
+});
+
+export { loginSchema, registerSchema, threadSchema };
