@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import 'tippy.js/dist/tippy.css';
 
 import Layout from '@/components/Layout';
 import Loader from '@/components/Loader';
