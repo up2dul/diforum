@@ -40,7 +40,7 @@
   label { @apply inline-block mb-1; }
 
   h1,
-  h2 { @apply font-semibold; }
+  h2 { @apply font-medium; }
 
   input,
   textarea { @apply block rounded-xl border border-como-600 py-1 px-2 focus:outline-green-500; }

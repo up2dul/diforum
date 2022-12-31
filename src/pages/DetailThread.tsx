@@ -56,7 +56,7 @@ const DetailThread = () => {
         <div>
           <h3>{owner.name}</h3>
           <p className='text-sm'>
-            #{category} <span className='font-semibold text-como-900'>•</span> {postedAt(createdAt)}
+            #{category} <span className='font-medium text-como-900'>•</span> {postedAt(createdAt)}
           </p>
         </div>
       </section>
