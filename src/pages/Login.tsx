@@ -14,7 +14,7 @@ const Login = () => {
 
   const handleSubmit: SubmitHandler<LoginInputs> = (data) => {
     dispatch(asyncSetAuthUser(data));
-    toast('Log in successfully');
+    toast.success('Log in successfully');
   };
 
   return (

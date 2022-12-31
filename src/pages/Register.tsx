@@ -17,8 +17,8 @@ const Register = () => {
   const handleSubmit: SubmitHandler<RegisterInputs> = ({ fullName, email, password }) => {
     dispatch(asyncRegisterUser({ name: fullName, email, password }));
     navigate('/login');
-    toast('Register successfully');
-    toast('You can Log in now');
+    toast.success('Register successfully');
+    toast.success('You can Log in now');
   };
 
   return (

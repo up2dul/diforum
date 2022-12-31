@@ -31,7 +31,7 @@ const Profile = () => {
 
   const handleLogout = () => {
     dispatch(asyncUnsetAuthUser());
-    toast("You're logged out now");
+    toast.success("You're logged out now");
   };
 
   return (

@@ -17,7 +17,7 @@ const NewThread = () => {
   const handleSubmit: SubmitHandler<Inputs> = (data) => {
     dispatch(asyncAddThread(data));
     navigate('/');
-    toast('New thread posted');
+    toast.success('New thread posted');
   };
 
   return (
