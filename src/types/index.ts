@@ -70,3 +70,15 @@ export interface Leaderboard {
   user: User;
   score: number;
 }
+
+export type RegisterInputs = {
+  fullName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
+export type LoginInputs = {
+  email: string;
+  password: string;
+};
