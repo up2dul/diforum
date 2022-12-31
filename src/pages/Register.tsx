@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Helmet } from 'react-helmet-async';
 import type { SubmitHandler } from 'react-hook-form';
@@ -24,6 +24,7 @@ type Inputs = {
 
 const Register = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -36,6 +37,7 @@ const Register = () => {
 
   const onSubmit: SubmitHandler<Inputs> = ({ fullName, email, password }) => {
     dispatch(asyncRegisterUser({ name: fullName, email, password }));
+    navigate('/login');
   };
 
   return (
