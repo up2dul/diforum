@@ -10,7 +10,7 @@ import {
   asyncVoteThread,
 } from '@/store/slice/thread-detail';
 import { commentsCount, postedAt } from '@/utils';
-import BackToHome from '@/components/BackToHome';
+
 import Button from '@/components/Button';
 import CommentCard from '@/components/CommentCard';
 import Tiptap from '@/components/Tiptap';
@@ -54,7 +54,6 @@ const DetailThread = () => {
         <title>{title || 'Thread'} | Diforum - Discussion and Forum App</title>
       </Helmet>
 
-      <BackToHome />
       <section className='mb-5 flex items-center gap-3'>
         <img src={owner.avatar} alt={`${owner.name}'s avatar`} className='w-11 rounded-full' />
 

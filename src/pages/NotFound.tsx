@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet-async';
 
-import BackToHome from '@/components/BackToHome';
 import NotFoundSvg from '@/assets/not-found.svg';
 
 const NotFound = () => (
@@ -14,8 +13,6 @@ const NotFound = () => (
 
       <h2>404 - page not found</h2>
       <p>Oh no! It looks like you&apos;ve stumbled upon a lost page.</p>
-
-      <BackToHome />
     </section>
   </>
 );

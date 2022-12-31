@@ -8,7 +8,7 @@ import { asyncReceiveLeaderboard } from '@/store/slice/leaderboard';
 import { asyncReceiveThreads } from '@/store/slice/threads';
 import { asyncUnsetAuthUser } from '@/store/slice/auth-user';
 import { threadsCount } from '@/utils';
-import BackToHome from '@/components/BackToHome';
+
 import Button from '@/components/Button';
 import ProfileSvg from '@/assets/profile.svg';
 import type { AppDispatch, RootState } from '@/store';
@@ -41,7 +41,6 @@ const Profile = () => {
         <title>My profile | Diforum - Discussion and Forum App</title>
       </Helmet>
 
-      <BackToHome />
       <h2>🙂 My profile</h2>
 
       <section className='mt-10 flex items-center justify-center text-center md:justify-between md:text-left lg:mt-8'>

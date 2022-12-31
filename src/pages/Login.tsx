@@ -10,7 +10,7 @@ import type { SubmitHandler } from 'react-hook-form';
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import { asyncSetAuthUser } from '@/store/slice/auth-user';
 import { loginSchema } from '@/utils/schema';
-import BackToHome from '@/components/BackToHome';
+
 import Button from '@/components/Button';
 import InputGroup from '@/components/InputGroup';
 import LoginSvg from '@/assets/login.svg';
@@ -44,7 +44,6 @@ const Login = () => {
         <title>Log in | Diforum - Discussion and Forum App</title>
       </Helmet>
 
-      <BackToHome />
       <h2>📲 Log in to your account</h2>
 
       <section className='mt-10 flex justify-center lg:justify-between'>

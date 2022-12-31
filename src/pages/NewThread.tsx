@@ -8,7 +8,7 @@ import type { SubmitHandler } from 'react-hook-form';
 
 import { asyncAddThread } from '@/store/slice/threads';
 import { threadSchema } from '@/utils/schema';
-import BackToHome from '@/components/BackToHome';
+
 import Button from '@/components/Button';
 import InputGroup from '@/components/InputGroup';
 import Tiptap from '@/components/Tiptap';
@@ -38,7 +38,6 @@ const NewThread = () => {
         <title>Create new thread | Diforum - Discussion and Forum App</title>
       </Helmet>
 
-      <BackToHome />
       <h2>✍️ Create new thread</h2>
 
       <section className='mt-10 flex items-center justify-center lg:justify-between'>

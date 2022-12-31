@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 
 import { asyncReceiveLeaderboard } from '@/store/slice/leaderboard';
-import BackToHome from '@/components/BackToHome';
+
 import type { AppDispatch, RootState } from '@/store';
 
 const Leaderboard = () => {
@@ -20,7 +20,6 @@ const Leaderboard = () => {
         <title>Users leaderboard | Diforum - Discussion and Forum App</title>
       </Helmet>
 
-      <BackToHome />
       <h2 className='text-[22px] md:text-2xl'>🏆 Active users leaderboard</h2>
 
       <section className='mt-10'>

@@ -10,7 +10,7 @@ import type { SubmitHandler } from 'react-hook-form';
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import { asyncRegisterUser } from '@/store/slice/users';
 import { registerSchema } from '@/utils/schema';
-import BackToHome from '@/components/BackToHome';
+
 import Button from '@/components/Button';
 import InputGroup from '@/components/InputGroup';
 import RegisterSvg from '@/assets/register.svg';
@@ -49,7 +49,6 @@ const Register = () => {
         <title>Register | Diforum - Discussion and Forum App</title>
       </Helmet>
 
-      <BackToHome />
       <h2>📲 Register for your account</h2>
 
       <section className='mt-10 flex justify-center lg:justify-between'>
