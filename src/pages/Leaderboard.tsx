@@ -21,7 +21,7 @@ const Leaderboard = () => {
       </Helmet>
 
       <BackToHome />
-      <h2>🏆 Active users leaderboard</h2>
+      <h2 className='text-[22px] md:text-2xl'>🏆 Active users leaderboard</h2>
 
       <section className='mt-10'>
         <div className='mb-4 flex justify-between border-b border-como-400 pb-1'>

@@ -35,10 +35,11 @@ const Home = () => {
       {authUser ? (
         <h2>👋 Hi, {authUser.name}!</h2>
       ) : (
-        <h2>
-          ✏️ Join and start a thread, by{' '}
+        <h2 className='text-[21px] sm:text-[22px] lg:text-2xl'>
+          ✏️ Join and start a thread.
+          <br />
           <Link to='/register' className='text-link'>
-            register
+            Register
           </Link>{' '}
           your account now!
         </h2>
