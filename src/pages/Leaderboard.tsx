@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet-async';
 
 import { asyncReceiveLeaderboard } from '@/store/slice/leaderboard';
 import BackToHome from '@/components/BackToHome';
@@ -15,6 +16,10 @@ const Leaderboard = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Users leaderboard | Diforum - Discussion and Forum App</title>
+      </Helmet>
+
       <BackToHome />
       <h2>🏆 Active users leaderboard</h2>
 

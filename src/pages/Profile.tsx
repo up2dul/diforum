@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet-async';
 
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import { asyncReceiveLeaderboard } from '@/store/slice/leaderboard';
@@ -32,6 +33,10 @@ const Profile = () => {
 
   return (
     <>
+      <Helmet>
+        <title>My profile | Diforum - Discussion and Forum App</title>
+      </Helmet>
+
       <BackToHome />
       <h2>🙂 My profile</h2>
 

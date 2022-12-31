@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { Link } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Helmet } from 'react-helmet-async';
 import type { SubmitHandler } from 'react-hook-form';
 
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
@@ -39,6 +40,10 @@ const Register = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Register | Diforum - Discussion and Forum App</title>
+      </Helmet>
+
       <BackToHome />
       <h2>📲 Register for your account</h2>
 

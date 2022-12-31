@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Helmet } from 'react-helmet-async';
 import type { SubmitHandler } from 'react-hook-form';
 
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
@@ -35,6 +36,10 @@ const Login = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Log in | Diforum - Discussion and Forum App</title>
+      </Helmet>
+
       <BackToHome />
       <h2>📲 Log in to your account</h2>
 

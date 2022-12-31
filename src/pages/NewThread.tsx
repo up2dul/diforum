@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Helmet } from 'react-helmet-async';
 import type { SubmitHandler } from 'react-hook-form';
 
 import { asyncAddThread } from '@/store/slice/threads';
@@ -31,6 +32,10 @@ const NewThread = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Create new thread | Diforum - Discussion and Forum App</title>
+      </Helmet>
+
       <BackToHome />
       <h2>✍️ Create new thread</h2>
 

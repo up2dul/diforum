@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import { asyncReceiveThreads } from '@/store/slice/threads';
@@ -27,6 +28,10 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Diforum - Discussion and Forum App</title>
+      </Helmet>
+
       {authUser ? (
         <h2>👋 Hi, {authUser.name}!</h2>
       ) : (

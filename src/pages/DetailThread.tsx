@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import {
@@ -49,6 +50,10 @@ const DetailThread = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{title || 'Thread'} | Diforum - Discussion and Forum App</title>
+      </Helmet>
+
       <BackToHome />
       <section className='mb-5 flex items-center gap-3'>
         <img src={owner.avatar} alt={`${owner.name}'s avatar`} className='w-11 rounded-full' />
