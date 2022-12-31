@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import { asyncReceiveThreads } from '@/store/slice/threads';
 import { asyncReceiveUsers } from '@/store/slice/users';
-import ThreadCard from '@/components/ThreadCard';
+import ThreadCard from '@/components/card/ThreadCard';
 import type { AppDispatch, RootState } from '@/store';
 import type { Thread } from '@/types';
 

@@ -10,9 +10,8 @@ import type { SubmitHandler } from 'react-hook-form';
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import { asyncSetAuthUser } from '@/store/slice/auth-user';
 import { loginSchema } from '@/utils/schema';
-
-import Button from '@/components/Button';
-import InputGroup from '@/components/InputGroup';
+import Button from '@/components/button/Button';
+import InputGroup from '@/components/form/InputGroup';
 import LoginSvg from '@/assets/login.svg';
 import type { AppDispatch } from '@/store';
 

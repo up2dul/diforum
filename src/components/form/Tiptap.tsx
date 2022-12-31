@@ -6,7 +6,7 @@ import Placeholder from '@tiptap/extension-placeholder';
 import { IconBold, IconCode, IconItalic, IconStrikethrough } from '@tabler/icons';
 import type { Editor } from '@tiptap/core';
 
-import Tooltip from './Tooltip';
+import Tooltip from '../Tooltip';
 
 const MenuBar = ({ editor }: { editor: Editor | null }) => {
   const defaultClasses = 'text-como-500';

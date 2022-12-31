@@ -8,8 +8,7 @@ import { asyncReceiveLeaderboard } from '@/store/slice/leaderboard';
 import { asyncReceiveThreads } from '@/store/slice/threads';
 import { asyncUnsetAuthUser } from '@/store/slice/auth-user';
 import { threadsCount } from '@/utils';
-
-import Button from '@/components/Button';
+import Button from '@/components/button/Button';
 import ProfileSvg from '@/assets/profile.svg';
 import type { AppDispatch, RootState } from '@/store';
 

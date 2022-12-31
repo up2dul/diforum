@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import 'tippy.js/dist/tippy.css';
 
-import Layout from '@/components/Layout';
+import Layout from '@/components/layout/Layout';
 import Loader from '@/components/Loader';
-import ProtectedRoute from '@/components/ProtectedRoute';
+import ProtectedRoute from '@/components/routing/ProtectedRoute';
 
 const Home = lazy(() => import('@/pages/Home'));
 const DetailThread = lazy(() => import('@/pages/DetailThread'));

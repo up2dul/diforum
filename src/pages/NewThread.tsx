@@ -8,10 +8,9 @@ import type { SubmitHandler } from 'react-hook-form';
 
 import { asyncAddThread } from '@/store/slice/threads';
 import { threadSchema } from '@/utils/schema';
-
-import Button from '@/components/Button';
-import InputGroup from '@/components/InputGroup';
-import Tiptap from '@/components/Tiptap';
+import Button from '@/components/button/Button';
+import InputGroup from '@/components/form/InputGroup';
+import Tiptap from '@/components/form/Tiptap';
 import NewThreadSvg from '@/assets/new-thread.svg';
 import type { AppDispatch } from '@/store';
 import type { NewThread as Inputs } from '@/types';

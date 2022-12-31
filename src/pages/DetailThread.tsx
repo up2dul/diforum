@@ -10,11 +10,10 @@ import {
   asyncVoteThread,
 } from '@/store/slice/thread-detail';
 import { commentsCount, postedAt } from '@/utils';
-
-import Button from '@/components/Button';
-import CommentCard from '@/components/CommentCard';
-import Tiptap from '@/components/Tiptap';
-import VoteButton from '@/components/VoteButton';
+import Button from '@/components/button/Button';
+import CommentCard from '@/components/card/CommentCard';
+import Tiptap from '@/components/form/Tiptap';
+import VoteButton from '@/components/button/VoteButton';
 import type { AppDispatch, RootState } from '@/store';
 import type { Comment } from '@/types';
 
