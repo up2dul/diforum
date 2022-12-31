@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 
 import Layout from '@/components/Layout';
 import Loader from '@/components/Loader';
@@ -16,48 +17,50 @@ const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const App = () => (
   <BrowserRouter>
-    <Layout>
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/detail/:threadId' element={<DetailThread />} />
-          <Route path='/leaderboard' element={<Leaderboard />} />
-          <Route
-            path='/login'
-            element={
-              <ProtectedRoute>
-                <Login />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/register'
-            element={
-              <ProtectedRoute>
-                <Register />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/new-thread'
-            element={
-              <ProtectedRoute isShouldAuth>
-                <NewThread />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/profile'
-            element={
-              <ProtectedRoute isShouldAuth>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </Layout>
+    <HelmetProvider>
+      <Layout>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/detail/:threadId' element={<DetailThread />} />
+            <Route path='/leaderboard' element={<Leaderboard />} />
+            <Route
+              path='/login'
+              element={
+                <ProtectedRoute>
+                  <Login />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path='/register'
+              element={
+                <ProtectedRoute>
+                  <Register />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path='/new-thread'
+              element={
+                <ProtectedRoute isShouldAuth>
+                  <NewThread />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path='/profile'
+              element={
+                <ProtectedRoute isShouldAuth>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </Layout>
+    </HelmetProvider>
   </BrowserRouter>
 );
 
