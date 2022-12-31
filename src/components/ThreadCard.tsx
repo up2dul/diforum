@@ -20,15 +20,21 @@ const ThreadCard = ({
   <Link to={`/detail/${id}`}>
     <article className='thread-card flex flex-col gap-5'>
       <h2>{title}</h2>
+
       <p className='max-h-6 truncate' dangerouslySetInnerHTML={{ __html: body as string }} />
+
       <hr />
-      <div className='flex flex-wrap items-center justify-between gap-3 text-sm font-medium text-como-600'>
+
+      <div className='flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[11px] font-medium text-como-600 sm:text-[12px] lg:text-sm'>
         <p>
           <IconMessageDots /> {totalComments}
         </p>
         <p>
           <IconUser /> {author}
         </p>
+
+        <div className='w-full lg:hidden' />
+
         <p>
           <IconClock /> {postedAt(createdAt as string)}
         </p>
