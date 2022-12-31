@@ -1,15 +1,24 @@
+import { useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
+import BackToHome from './BackToHome';
 import Navbar from './Navbar';
 
-const Layout = ({ children }: { children: React.ReactNode }) => (
-  <>
-    <Navbar />
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  const { pathname } = useLocation();
 
-    <main className='x-container mt-[70px] pt-10 pb-16'>{children}</main>
+  return (
+    <>
+      <Navbar />
 
-    <Toaster position='bottom-right' toastOptions={{ className: 'bg-green-50' }} />
-  </>
-);
+      <main className='x-container mt-[70px] pt-10 pb-16'>
+        {pathname !== '/' && <BackToHome />}
+        {children}
+      </main>
+
+      <Toaster position='bottom-right' toastOptions={{ className: 'bg-green-50' }} />
+    </>
+  );
+};
 
 export default Layout;
