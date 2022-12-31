@@ -1,6 +1,6 @@
 import { IconArrowDown, IconArrowUp } from '@tabler/icons';
 
-import Tooltip from './Tooltip';
+import Tooltip from '../Tooltip';
 
 type VoteButtonProps = {
   options: {

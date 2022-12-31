@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { asyncVoteComment } from '@/store/slice/thread-detail';
 import { postedAt } from '@/utils';
-import VoteButton from './VoteButton';
+import VoteButton from '../button/VoteButton';
 import type { Comment as CommentCardProps } from '@/types';
 import type { AppDispatch, RootState } from '@/store';
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import MenuList from './MenuLink';
+import MenuList from '../MenuLink';
 import Logo from '@/assets/logo.png';
 
 const Navbar = () => (
