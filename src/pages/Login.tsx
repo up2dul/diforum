@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Helmet } from 'react-helmet-async';
+import toast from 'react-hot-toast';
 import type { SubmitHandler } from 'react-hook-form';
 
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
@@ -32,7 +33,10 @@ const Login = () => {
     dispatch(asyncPreloadProcess());
   }, [dispatch]);
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => dispatch(asyncSetAuthUser(data));
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    dispatch(asyncSetAuthUser(data));
+    toast('Log in successfully');
+  };
 
   return (
     <>

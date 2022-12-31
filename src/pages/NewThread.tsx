@@ -3,6 +3,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Helmet } from 'react-helmet-async';
+import toast from 'react-hot-toast';
 import type { SubmitHandler } from 'react-hook-form';
 
 import { asyncAddThread } from '@/store/slice/threads';
@@ -28,6 +29,7 @@ const NewThread = () => {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     dispatch(asyncAddThread(data));
     navigate('/');
+    toast('New thread posted');
   };
 
   return (

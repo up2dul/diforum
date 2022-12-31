@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
+import toast from 'react-hot-toast';
 
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import { asyncReceiveLeaderboard } from '@/store/slice/leaderboard';
@@ -29,7 +30,10 @@ const Profile = () => {
     dispatch(asyncReceiveThreads());
   }, [dispatch]);
 
-  const handleLogout = () => dispatch(asyncUnsetAuthUser());
+  const handleLogout = () => {
+    dispatch(asyncUnsetAuthUser());
+    toast("You're logged out now");
+  };
 
   return (
     <>

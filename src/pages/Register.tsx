@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Helmet } from 'react-helmet-async';
+import toast from 'react-hot-toast';
 import type { SubmitHandler } from 'react-hook-form';
 
 import { asyncPreloadProcess } from '@/store/slice/is-preload';
@@ -38,6 +39,8 @@ const Register = () => {
   const onSubmit: SubmitHandler<Inputs> = ({ fullName, email, password }) => {
     dispatch(asyncRegisterUser({ name: fullName, email, password }));
     navigate('/login');
+    toast('Register successfully');
+    toast('You can Log in now');
   };
 
   return (
