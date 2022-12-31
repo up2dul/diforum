@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
@@ -7,7 +6,6 @@ import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import type { SubmitHandler } from 'react-hook-form';
 
-import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import { asyncSetAuthUser } from '@/store/slice/auth-user';
 import { loginSchema } from '@/utils/schema';
 import Button from '@/components/button/Button';
@@ -27,10 +25,6 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>({ resolver: yupResolver(loginSchema) });
-
-  useEffect(() => {
-    dispatch(asyncPreloadProcess());
-  }, [dispatch]);
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     dispatch(asyncSetAuthUser(data));

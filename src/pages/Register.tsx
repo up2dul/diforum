@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,7 +6,6 @@ import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import type { SubmitHandler } from 'react-hook-form';
 
-import { asyncPreloadProcess } from '@/store/slice/is-preload';
 import { asyncRegisterUser } from '@/store/slice/users';
 import { registerSchema } from '@/utils/schema';
 import Button from '@/components/button/Button';
@@ -30,10 +28,6 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>({ resolver: yupResolver(registerSchema) });
-
-  useEffect(() => {
-    dispatch(asyncPreloadProcess());
-  }, [dispatch]);
 
   const onSubmit: SubmitHandler<Inputs> = ({ fullName, email, password }) => {
     dispatch(asyncRegisterUser({ name: fullName, email, password }));
