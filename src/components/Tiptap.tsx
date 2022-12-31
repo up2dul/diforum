@@ -6,6 +6,8 @@ import Placeholder from '@tiptap/extension-placeholder';
 import { IconBold, IconCode, IconItalic, IconStrikethrough } from '@tabler/icons';
 import type { Editor } from '@tiptap/core';
 
+import Tooltip from './Tooltip';
+
 const MenuBar = ({ editor }: { editor: Editor | null }) => {
   const defaultClasses = 'text-como-500';
   const activeClasses = 'text-green-500 ring-2 ring-green-500';
@@ -14,42 +16,49 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
 
   return (
     <div className='flex justify-center gap-4 rounded-t-xl border-2 border-como-600 py-1 px-2'>
-      <button
-        type='button'
-        title='Bold'
-        disabled={!editor.can().chain().focus().toggleBold().run()}
-        onClick={() => editor.chain().focus().toggleBold().run()}
-        className={editor.isActive('bold') ? activeClasses : defaultClasses}
-      >
-        <IconBold />
-      </button>
-      <button
-        type='button'
-        title='Italic'
-        disabled={!editor.can().chain().focus().toggleItalic().run()}
-        onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={editor.isActive('italic') ? activeClasses : defaultClasses}
-      >
-        <IconItalic />
-      </button>
-      <button
-        type='button'
-        title='Strikethrough'
-        disabled={!editor.can().chain().focus().toggleStrike().run()}
-        onClick={() => editor.chain().focus().toggleStrike().run()}
-        className={editor.isActive('strike') ? activeClasses : defaultClasses}
-      >
-        <IconStrikethrough />
-      </button>
-      <button
-        type='button'
-        title='Code'
-        disabled={!editor.can().chain().focus().toggleCode().run()}
-        onClick={() => editor.chain().focus().toggleCode().run()}
-        className={editor.isActive('code') ? activeClasses : defaultClasses}
-      >
-        <IconCode />
-      </button>
+      <Tooltip content='Bold'>
+        <button
+          type='button'
+          disabled={!editor.can().chain().focus().toggleBold().run()}
+          onClick={() => editor.chain().focus().toggleBold().run()}
+          className={editor.isActive('bold') ? activeClasses : defaultClasses}
+        >
+          <IconBold />
+        </button>
+      </Tooltip>
+
+      <Tooltip content='Italic'>
+        <button
+          type='button'
+          disabled={!editor.can().chain().focus().toggleItalic().run()}
+          onClick={() => editor.chain().focus().toggleItalic().run()}
+          className={editor.isActive('italic') ? activeClasses : defaultClasses}
+        >
+          <IconItalic />
+        </button>
+      </Tooltip>
+
+      <Tooltip content='Strikethrough'>
+        <button
+          type='button'
+          disabled={!editor.can().chain().focus().toggleStrike().run()}
+          onClick={() => editor.chain().focus().toggleStrike().run()}
+          className={editor.isActive('strike') ? activeClasses : defaultClasses}
+        >
+          <IconStrikethrough />
+        </button>
+      </Tooltip>
+
+      <Tooltip content='Code'>
+        <button
+          type='button'
+          disabled={!editor.can().chain().focus().toggleCode().run()}
+          onClick={() => editor.chain().focus().toggleCode().run()}
+          className={editor.isActive('code') ? activeClasses : defaultClasses}
+        >
+          <IconCode />
+        </button>
+      </Tooltip>
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import { IconArrowDown, IconArrowUp } from '@tabler/icons';
 
+import Tooltip from './Tooltip';
+
 type VoteButtonProps = {
   options: {
     voteFor: 'thread' | 'comment';
@@ -31,16 +33,17 @@ const VoteButton = ({
   };
 
   return (
-    <button
-      type='button'
-      title={title}
-      disabled={isDisabled}
-      className={isVoted ? 'text-green-600' : ''}
-      onClick={handleClick}
-    >
-      {voteType === 'up' ? <IconArrowUp /> : <IconArrowDown />}
-      {children}
-    </button>
+    <Tooltip content={title}>
+      <button
+        type='button'
+        disabled={isDisabled}
+        className={isVoted ? 'text-green-600' : ''}
+        onClick={handleClick}
+      >
+        {voteType === 'up' ? <IconArrowUp /> : <IconArrowDown />}
+        {children}
+      </button>
+    </Tooltip>
   );
 };
 
