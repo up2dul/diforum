@@ -9,6 +9,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:cypress/recommended',
     'prettier',
   ],
   overrides: [],
@@ -17,7 +18,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint'],
+  plugins: ['react', 'react-hooks', '@typescript-eslint', 'cypress'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'no-duplicate-imports': 'off',
