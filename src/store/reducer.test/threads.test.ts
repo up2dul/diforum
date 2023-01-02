@@ -26,7 +26,7 @@ describe('threads reducer', () => {
     };
 
     // action
-    // const nextState = threadsSlice.actions.receiveThreads(action.payload);
+    const nextState = threadsSlice.actions.receiveThreads(action.payload);
 
     // assert
     expect(nextState).toEqual(action);
