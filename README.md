@@ -1,11 +1,15 @@
-# Personal React Boilerplate
-This is my very simple personal boilerplate for building application using React.js + Vite + Typescript.
+# Diforum
+Diforum is a discussion website app that brings people together to share ideas, opinions, and insights on a wide range of topics.
 
-This boilerplate consists of the following:
-1. Vite module bundler
-2. React.js v.18
+## Screenshot
+![website screenshot](public/app-screenshot/diforum.png)
+
+## Tech stack
+1. Vite
+2. React.js
 3. Typescript
-4. Eslint with some additional rules
-5. Prettier
-6. Absolute import and path aliases. `@` as `/src` path directory
-7. Husky + Lint staged
+4. Tailwindcss
+5. Redux toolkit
+6. React router DOM
+7. React hook form
+8. etc
