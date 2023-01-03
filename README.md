@@ -1,4 +1,4 @@
-# Diforum
+# 💬 Diforum
 Diforum is a discussion website app that brings people together to share ideas, opinions, and insights on a wide range of topics.
 
 ## Screenshot
@@ -13,3 +13,6 @@ Diforum is a discussion website app that brings people together to share ideas, 
 6. React router DOM
 7. React hook form
 8. etc
+
+---
+Images illustration source: https://popsy.co
