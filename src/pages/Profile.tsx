@@ -40,9 +40,7 @@ const Profile = () => {
         <title>My profile | Diforum - Discussion and Forum App</title>
       </Helmet>
 
-      <h2>🙂 My profile</h2>
-
-      <section className='mt-10 flex items-center justify-center text-center md:justify-between md:text-left lg:mt-8'>
+      <section className='mt-8 flex items-center justify-center text-center md:justify-between md:text-left lg:mt-8'>
         <div className='flex flex-col gap-1'>
           <img src={avatar} alt='User avatar' className='mx-auto w-16 rounded-full md:mx-0' />
           <h2>{name}</h2>
