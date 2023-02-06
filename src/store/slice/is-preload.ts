@@ -2,17 +2,17 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 import api from '@/utils/api';
-import { setAuthUser, unsetAuthUser } from './auth-user';
+import { asyncSetAuthUser, asyncUnsetAuthUser } from './auth-user';
 
 // #region Thunk function
 const asyncPreloadProcess = createAsyncThunk('isPreload/set', async (_, thunkAPI) => {
   try {
     // preload process
     const authUser = await api.getOwnProfile();
-    thunkAPI.dispatch(setAuthUser(authUser));
+    thunkAPI.dispatch(asyncSetAuthUser(authUser));
   } catch (error) {
     // fallback process
-    thunkAPI.dispatch(unsetAuthUser());
+    thunkAPI.dispatch(asyncUnsetAuthUser());
   } finally {
     thunkAPI.dispatch(setIsPreload(false));
   }
