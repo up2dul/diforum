@@ -1,14 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
 
 import api from '@/utils/api';
 import type { User, UserRegister } from '@/types';
 
 // #region Thunk function
-const asyncReceiveUsers = createAsyncThunk('users/receive', async (_, thunkAPI) => {
+const asyncReceiveUsers = createAsyncThunk('users/receive', async () => {
   try {
     const users = await api.getAllUsers();
-    thunkAPI.dispatch(receiveUsers(users));
+    return users;
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.log('there is an error:', error.message);
@@ -39,13 +38,13 @@ const initialState: InitialState = {
 export const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {
-    receiveUsers(state, action: PayloadAction<User[]>) {
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(asyncReceiveUsers.fulfilled, (state, action) => {
       state.list = action.payload;
-    },
+    });
   },
 });
 
-export const { receiveUsers } = usersSlice.actions;
 export { asyncReceiveUsers, asyncRegisterUser };
 export default usersSlice.reducer;
