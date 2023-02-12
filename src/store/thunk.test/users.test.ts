@@ -5,11 +5,15 @@
  *  - should dispatch action correctly when data fetching success
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi, vitest } from 'vitest';
+import { configureStore } from '@reduxjs/toolkit';
+import type { User } from '@/types';
+import type { Store, AnyAction } from '@reduxjs/toolkit';
 
 import api from '@/utils/api';
-import { asyncReceiveUsers, receiveUsers } from '@/store/slice/users';
-import type { User } from '@/types';
+import usersReducer, { asyncReceiveUsers } from '@/store/slice/users';
+
+vitest.mock('@/utils/api');
 
 const fakeUsersResponse: User[] = [
   {
@@ -21,19 +25,25 @@ const fakeUsersResponse: User[] = [
 ];
 
 describe('asyncReceiveUsers thunk', () => {
+  let store: Store;
+
+  beforeEach(() => {
+    store = configureStore({
+      reducer: usersReducer,
+    });
+  });
+
   it('should dispatch action correctly when data fetching success', async () => {
+    expect.assertions(2);
     // arrange
-    // stub implementation
-    api.getAllUsers = () => Promise.resolve(fakeUsersResponse);
-    // mock dispatch
-    const dispatch = vi.fn();
-    // mock getState
-    const getState = vi.fn();
+    const mockGetAllUsers = vi.fn().mockResolvedValue(fakeUsersResponse);
+    api.getAllUsers = mockGetAllUsers;
 
     // action
-    await asyncReceiveUsers()(dispatch, getState, undefined);
+    const next = await store.dispatch(asyncReceiveUsers() as unknown as AnyAction);
 
     // assert
-    expect(dispatch).toHaveBeenCalledWith(receiveUsers(fakeUsersResponse));
+    expect(next.type).toEqual(asyncReceiveUsers.fulfilled.type);
+    expect(next.payload).toEqual(fakeUsersResponse);
   });
 });

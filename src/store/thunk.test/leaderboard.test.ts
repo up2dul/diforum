@@ -6,9 +6,11 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
+import { configureStore } from '@reduxjs/toolkit';
+import type { AnyAction, Store } from '@reduxjs/toolkit';
 
 import api from '@/utils/api';
-import { asyncReceiveLeaderboard, receiveLeaderboard } from '@/store/slice/leaderboard';
+import leaderboardReducer, { asyncReceiveLeaderboard } from '@/store/slice/leaderboard';
 import type { Leaderboard } from '@/types';
 
 const fakeLeaderboardResponse: Leaderboard[] = [
@@ -24,19 +26,25 @@ const fakeLeaderboardResponse: Leaderboard[] = [
 ];
 
 describe('asyncReceiveLeaderboard thunk', () => {
+  let store: Store;
+
+  beforeEach(() => {
+    store = configureStore({
+      reducer: leaderboardReducer,
+    });
+  });
+
   it('should dispatch action correctly when data fetching success', async () => {
+    expect.assertions(2);
     // arrange
-    // stub implementation
-    api.getLeaderboard = () => Promise.resolve(fakeLeaderboardResponse);
-    // mock dispatch
-    const dispatch = vi.fn();
-    // mock getState
-    const getState = vi.fn();
+    const mockGetLeaderboard = vi.fn().mockResolvedValue(fakeLeaderboardResponse);
+    api.getLeaderboard = mockGetLeaderboard;
 
     // action
-    await asyncReceiveLeaderboard()(dispatch, getState, undefined);
+    const next = await store.dispatch(asyncReceiveLeaderboard() as unknown as AnyAction);
 
     // assert
-    expect(dispatch).toHaveBeenCalledWith(receiveLeaderboard(fakeLeaderboardResponse));
+    expect(next.type).toEqual(asyncReceiveLeaderboard.fulfilled.type);
+    expect(next.payload).toEqual(fakeLeaderboardResponse);
   });
 });
