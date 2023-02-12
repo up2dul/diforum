@@ -12,7 +12,7 @@ import type { Thread } from '@/types';
 
 const Home = () => {
   const authUser = useSelector((state: RootState) => state.authUser.value);
-  const threads = useSelector((state: RootState) => state.threads.list);
+  const { list: threads, error } = useSelector((state: RootState) => state.threads);
   const users = useSelector((state: RootState) => state.users.list);
   const dispatch = useDispatch<AppDispatch>();
   const threadsWithAuthor = threads.map((thread: Thread) => ({
@@ -46,6 +46,7 @@ const Home = () => {
       )}
 
       <section className='mt-10 flex flex-col gap-7'>
+        {error && <p>Sorry, there is an error: {error}</p>}
         {threadsWithAuthor.map((thread: Thread) => (
           <ThreadCard key={thread.id} {...thread} />
         ))}
