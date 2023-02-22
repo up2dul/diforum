@@ -1,18 +1,36 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { toast } from 'react-hot-toast';
+import type { SubmitHandler } from 'react-hook-form';
 
 import { loginSchema } from '@/utils/schema';
 import Button from '../button/Button';
 import InputGroup from './InputGroup';
+import { asyncSetAuthUser } from '@/store/slice/auth-user';
 import type { LoginInputs } from '@/types';
+import type { AppDispatch, RootState } from '@/store';
 
-const LoginForm = ({ onSubmit }: { onSubmit: (data: LoginInputs) => void }) => {
+const LoginForm = () => {
+  const { error } = useSelector((state: RootState) => state.authUser);
+  const dispatch = useDispatch<AppDispatch>();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginInputs>({ resolver: yupResolver(loginSchema) });
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+  }, [error]);
+
+  const onSubmit: SubmitHandler<LoginInputs> = (data) => {
+    dispatch(asyncSetAuthUser(data));
+  };
 
   return (
     <form className='flex flex-col gap-5' onSubmit={handleSubmit(onSubmit)}>
