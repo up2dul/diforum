@@ -1,18 +1,32 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { toast } from 'react-hot-toast';
+import type { SubmitHandler } from 'react-hook-form';
 
+import { asyncRegisterUser } from '@/store/slice/users';
 import { registerSchema } from '@/utils/schema';
 import Button from '../button/Button';
 import InputGroup from './InputGroup';
 import type { RegisterInputs } from '@/types';
+import type { AppDispatch } from '@/store';
 
-const RegisterForm = ({ onSubmit }: { onSubmit: (data: RegisterInputs) => void }) => {
+const RegisterForm = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<RegisterInputs>({ resolver: yupResolver(registerSchema) });
+
+  const onSubmit: SubmitHandler<RegisterInputs> = ({ fullName, email, password }) => {
+    dispatch(asyncRegisterUser({ name: fullName, email, password }));
+    navigate('/login');
+    toast.success('Register successfully');
+    toast.success('You can Log in now');
+  };
 
   return (
     <form className='flex flex-col gap-5' onSubmit={handleSubmit(onSubmit)}>
