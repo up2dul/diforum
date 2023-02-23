@@ -36,7 +36,7 @@ const ThreadCard = ({
         <div className='w-full lg:hidden' />
 
         <p>
-          <IconClock /> {postedAt(createdAt as string)}
+          <IconClock /> <time dateTime={createdAt}>{postedAt(createdAt as string)}</time>
         </p>
         <p>
           <IconHash /> {category}

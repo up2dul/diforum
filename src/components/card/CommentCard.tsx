@@ -45,7 +45,9 @@ const CommentCard = ({
       <p dangerouslySetInnerHTML={{ __html: content }} />
 
       <div className='flex items-center justify-between'>
-        <h3 className='text-sm'>{postedAt(createdAt)}</h3>
+        <h3 className='text-sm'>
+          <time dateTime={createdAt}>{postedAt(createdAt)}</time>
+        </h3>
         <div className='flex gap-8'>
           <VoteButton
             options={{
