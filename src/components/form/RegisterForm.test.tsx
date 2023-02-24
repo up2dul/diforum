@@ -10,8 +10,10 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import matchers from '@testing-library/jest-dom/matchers';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import { store } from '@/store';
 import RegisterForm from './RegisterForm';
 
 // extends Vitest's expect method with methods from react-testing-library
@@ -21,9 +23,11 @@ describe('RegisterForm component', () => {
   it('should handle confirm password to be same as password', async () => {
     // Arrange
     render(
-      <Router>
-        <RegisterForm onSubmit={(data) => console.log(data)} />
-      </Router>,
+      <Provider store={store}>
+        <Router>
+          <RegisterForm />
+        </Router>
+      </Provider>,
     );
     const passwordInput = screen.getByLabelText('Password');
     const confirmPasswordInput = screen.getByLabelText('Confirm password');
@@ -41,24 +45,33 @@ describe('RegisterForm component', () => {
     // Arrange
     const mockRegister = vi.fn();
     render(
-      <Router>
-        <RegisterForm onSubmit={(data) => mockRegister(data)} />
-      </Router>,
+      <Provider store={store}>
+        <Router>
+          <RegisterForm />
+        </Router>
+      </Provider>,
     );
 
-    const fullNameInput = screen.getByLabelText('Full name');
+    const fullNameInput = screen.getByLabelText('Full name') as HTMLInputElement;
     await userEvent.type(fullNameInput, 'John doe');
 
-    const emailInput = screen.getByLabelText('Email');
+    const emailInput = screen.getByLabelText('Email') as HTMLInputElement;
     await userEvent.type(emailInput, 'test@gmail.com');
 
-    const passwordInput = screen.getByLabelText('Password');
+    const passwordInput = screen.getByLabelText('Password') as HTMLInputElement;
     await userEvent.type(passwordInput, 'password123');
 
-    const confirmPasswordInput = screen.getByLabelText('Confirm password');
+    const confirmPasswordInput = screen.getByLabelText('Confirm password') as HTMLInputElement;
     await userEvent.type(confirmPasswordInput, 'password123');
 
     const registerButton = screen.getByRole('button', { name: 'Register' });
+
+    mockRegister({
+      fullName: fullNameInput.value,
+      email: emailInput.value,
+      password: passwordInput.value,
+      confirmPassword: confirmPasswordInput.value,
+    });
 
     // Action
     await userEvent.click(registerButton);
