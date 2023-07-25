@@ -15,7 +15,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { store } from '@/store';
-import LoginForm from './LoginForm';
+import LoginForm from '../form/LoginForm';
 
 // extends Vitest's expect method with methods from react-testing-library
 expect.extend(matchers);
